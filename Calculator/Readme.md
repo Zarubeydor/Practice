@@ -1,2 +1,2 @@
-Simple console Calculator. 
+## Simple console Calculator. 
 It supports basic calculations, like "+", "-", "*", "/", "^", "sqrt".
