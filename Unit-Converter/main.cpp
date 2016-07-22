@@ -1,18 +1,18 @@
 #include <iostream>
-#include <cstdlib>
+#include <cstdlib>    //for system("cls")
 
 using namespace std;
 
 int main()
 {
     cout << "We going to do some magic here!" << endl;
-    void temp();
-    void weight();
-    void dist();
+    void temp();    //Temperature
+    void weight();  //Weight
+    void dist();    //Distance
 
     bool isActive = true;
     do{
-       unsigned int damn = 1;
+       unsigned int damn = 1;     //If user can't press the right button, loop will executing again and again
        while(damn){
           system("cls");
 
