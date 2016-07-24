@@ -66,8 +66,8 @@ void temp()
         if(!(cin>>tempC) || cin.get() != '\n')
         {
             cout << "Incorrect input!" << endl;
-            cin.clear(); // сбрасывает все биты потока, тоесть поток становится "хорошим"
-            cin.sync();//Удалим данные из буффера
+            cin.clear(); 
+            cin.sync();
         } else {
 
 
