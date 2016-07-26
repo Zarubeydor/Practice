@@ -137,7 +137,6 @@ void weight()
 
                 default: cout << "Try again, fool.";
             };
-
         };
     };
 };
