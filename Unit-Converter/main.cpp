@@ -1,21 +1,21 @@
 #include <iostream>
-#include <cstdlib>
-#include <conio.h>
+#include <cstdlib>    // system("cls")
+#include <conio.h>    // getch()
 
 using namespace std;
 
 int main()
 {
     cout << "We going to do some magic here!" << endl;
-    void temp();
-    void weight();
-    void dist();
+    void temp();     // Temperarure
+    void weight();   // Weight
+    void dist();     // Distance
 
     bool isActive = true;
     do{
        unsigned int damn = 1;
        while(damn){
-          system("cls");
+          system("cls");      //After every calculation, console will be cleared
 
           cout << "What kind of magic do you want to see?" << endl;
           cout << "1. Temperature (\xF8\x46,\xF8\x43)" << endl;
@@ -29,9 +29,9 @@ int main()
           {
               case 1: temp();
                       break;
-              /*case 2: weight();
+              case 2: weight();
                       break;
-              case 3: dist();
+              /*case 3: dist();
                       break;  */
               case 4: cout << "Bye!" << endl;
                       isActive = false;
@@ -39,14 +39,13 @@ int main()
                       break;
               default: cerr << "Try again!(press any key)" << endl;
                        getch();
-          }
-       }
+          };
+       };
        isActive = false;
     } while(isActive);
 
     return 0;
 }
-
 
 void temp()
 {
@@ -55,47 +54,90 @@ void temp()
     cout << "2. Celcium - > Fahrenheit" << endl;
     int tempC;
     double tempFah, tempCel;
-    bool isActT;
+    bool isActiveT;
 
-    while(isActT)
+    while(isActiveT)
     {
-
-
-
-
-        if(!(cin>>tempC) || cin.get() != '\n')
+        if(!(cin>>tempC) || cin.get() != '\n')       //input must be integer type
         {
             cout << "Incorrect input!" << endl;
-            cin.clear(); 
+            cin.clear();
             cin.sync();
         } else {
-
 
             switch(tempC)
             {
             case 1:
-                cout << "Write temperature in Fahrenheits:" << endl;
+                cout << "Write temperature in Fahrenheits: ";
                 cin >> tempFah;
                 tempCel = (( tempFah - 32 ) / 1.8);
                 cout.precision(4);
                 cout << tempFah << "\xF8" << "F = " << tempCel << "\xF8" << "C." << endl;
+                cout << "to be continued...(press any key)";
                 getch();
-                isActT = false;
+                isActiveT = false;
                 break;
 
             case 2:
-                cout << "Write temperature in Celcius:" << endl;
+                cout << "Write temperature in Celcius: ";
                 cin >> tempCel;
                 tempFah = (( tempCel*1.8 ) + 32);
                 cout.precision(4);
                 cout << tempCel << "\xF8" << "C = " << tempFah << "\xF8" << "F." << endl;
+                cout << "to be continued...(press any key)";
                 getch();
-                isActT = false;
+                isActiveT = false;
                 break;
 
             default: cout << "Try again, fool.";
             };
+        };
+    };
+};
 
-        }
-    }
+void weight()
+{
+    cout << "\tWEIGHT" << endl;
+    cout << "1. Kg -> Lbs" << endl;
+    cout << "2. Lbs -> Kg" << endl;
+    int weC;
+    double weKg, weLbs;
+    bool isActiveW;
+
+    while(isActiveW)
+    {
+        if(!(cin>>weC) || cin.get() != '\n')
+        {
+            cout << "Incorrect input!" << endl;
+            cin.clear();
+            cin.sync();
+        } else {
+
+            switch(weC)
+            {
+                case 1:
+                    cout << "Write mass in kilograms: ";
+                    cin >> weKg;
+                    weLbs = (weKg * 2.2046);
+                    cout << weKg << " kg = " << weLbs << " lbs." << endl;
+                    cout << "to be continued...(press any key)";
+                    getch();
+                    isActiveW = false;
+                    break;
+
+                case 2:
+                    cout << "Write mass in libras: ";
+                    cin >> weLbs;
+                    weKg = (weLbs / 2.2046);
+                    cout << weLbs << " lbs = " << weKg << " kg." << endl;
+                    cout << "to be continued...(press any key)";
+                    getch();
+                    isActiveW = false;
+                    break;
+
+                default: cout << "Try again, fool.";
+            };
+
+        };
+    };
 };
