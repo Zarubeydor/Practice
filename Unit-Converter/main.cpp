@@ -31,8 +31,8 @@ int main()
                       break;
               case 2: weight();
                       break;
-              /*case 3: dist();
-                      break;  */
+              case 3: dist();
+                      break;
               case 4: cout << "Bye!" << endl;
                       isActive = false;
                       damn = 0;
@@ -53,7 +53,7 @@ void temp()
     cout << "1. Fahrenheit -> Celcium" << endl;
     cout << "2. Celcium - > Fahrenheit" << endl;
     int tempC;
-    double tempFah, tempCel;
+    double tempFah, tempCel; // Fahrenheit, Celcius
     bool isActiveT;
 
     while(isActiveT)
@@ -101,7 +101,7 @@ void weight()
     cout << "1. Kg -> Lbs" << endl;
     cout << "2. Lbs -> Kg" << endl;
     int weC;
-    double weKg, weLbs;
+    double weKg, weLbs;   //Kilograms, Libras
     bool isActiveW;
 
     while(isActiveW)
@@ -133,6 +133,52 @@ void weight()
                     cout << "to be continued...(press any key)";
                     getch();
                     isActiveW = false;
+                    break;
+
+                default: cout << "Try again, fool.";
+            };
+        };
+    };
+};
+
+void dist()
+{
+    cout << "\tDISTANCE" << endl;
+    cout << "1. Kilometers -> Miles" << endl;
+    cout << "2. Miles -> Kilometers" << endl;
+    int distC;
+    double distK, distM;    //Km, Miles
+    bool isActiveD;
+
+    while(isActiveD)
+    {
+        if(!(cin>>distC) || cin.get() != '\n')
+        {
+            cout << "Incorrect input!" << endl;
+            cin.clear();
+            cin.sync();
+        } else {
+
+            switch(distC)
+            {
+                case 1:
+                    cout << "Write distance in km: ";
+                    cin >> distK;
+                    distM = (distK / 1.609);
+                    cout << distK << " km = " << distM << " miles." << endl;
+                    cout << "to be continued...(press any key)";
+                    getch();
+                    isActiveD = false;
+                    break;
+
+                case 2:
+                    cout << "Write distance in miles: ";
+                    cin >> distM;
+                    distK = (distM * 1.609);
+                    cout << distM << " miles = " << distK << " km." << endl;
+                    cout << "to be continued...(press any key)";
+                    getch();
+                    isActiveD = false;
                     break;
 
                 default: cout << "Try again, fool.";
