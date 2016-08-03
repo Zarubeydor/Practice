@@ -11,7 +11,7 @@ int main()
     void weight();   // Weight
     void dist();     // Distance
 
-    bool isActive = true;
+    bool isActive = true;  //main loop
     do{
        unsigned int damn = 1;
        while(damn){
