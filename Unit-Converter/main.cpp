@@ -11,9 +11,9 @@ int main()
     void weight();   // Weight
     void dist();     // Distance
 
-    bool isActive = true;  //main loop
+    bool isActive = true;
     do{
-       unsigned int damn = 1;
+       bool damn = true;
        while(damn){
           system("cls");      //After every calculation, console will be cleared
 
@@ -23,8 +23,13 @@ int main()
           cout << "3. Distance (km, ml)" << endl;
           cout << "4. Exit(no return)" << endl;
 
-          int magic;
-          cin >> magic;
+          unsigned int magic;
+          while(!(cin >> magic))
+          {
+              cout << "Ar U Sirius?" << endl;
+              cin.clear();
+              while (cin.get() != '\n');
+          }
           switch(magic)
           {
               case 1: temp();
@@ -35,10 +40,11 @@ int main()
                       break;
               case 4: cout << "Bye!" << endl;
                       isActive = false;
-                      damn = 0;
+                      damn = false;
                       break;
               default: cerr << "Try again!(press any key)" << endl;
                        getch();
+                       break;
           };
        };
        isActive = false;
@@ -52,26 +58,32 @@ void temp()
     cout << "\t TEMPERATURE" << endl;
     cout << "1. Fahrenheit -> Celcium" << endl;
     cout << "2. Celcium - > Fahrenheit" << endl;
-    int tempC;
+    long int tempC;          // temperature Choice
     double tempFah, tempCel; // Fahrenheit, Celcius
     bool isActiveT;
 
     while(isActiveT)
     {
-        if(!(cin>>tempC) || cin.get() != '\n')       //input must be integer type
+        /*if(!(cin>>tempC) || cin.get() != '\n')       //input must be integer type
         {
             cout << "Incorrect input!" << endl;
             cin.clear();
             cin.sync();
         } else {
-
-            switch(tempC)
-            {
+        */                                             // old version of buggy code
+        while(!(cin >> tempC))                         // input must be integer type
+          {
+              cin.clear();
+              while (cin.get() != '\n');
+              cout << "WRONG" << endl;
+          };
+        switch(tempC)
+        {
             case 1:
                 cout << "Write temperature in Fahrenheits: ";
                 cin >> tempFah;
                 tempCel = (( tempFah - 32 ) / 1.8);
-                cout.precision(4);
+                cout.precision(8);
                 cout << tempFah << "\xF8" << "F = " << tempCel << "\xF8" << "C." << endl;
                 cout << "to be continued...(press any key)";
                 getch();
@@ -82,15 +94,14 @@ void temp()
                 cout << "Write temperature in Celcius: ";
                 cin >> tempCel;
                 tempFah = (( tempCel*1.8 ) + 32);
-                cout.precision(4);
+                cout.precision(8);
                 cout << tempCel << "\xF8" << "C = " << tempFah << "\xF8" << "F." << endl;
                 cout << "to be continued...(press any key)";
                 getch();
                 isActiveT = false;
                 break;
 
-            default: cout << "Try again, fool.";
-            };
+        default: cout << "Try again, fool." << endl;
         };
     };
 };
@@ -100,21 +111,20 @@ void weight()
     cout << "\tWEIGHT" << endl;
     cout << "1. Kg -> Lbs" << endl;
     cout << "2. Lbs -> Kg" << endl;
-    int weC;
+    int weC;              // weight Choice
     double weKg, weLbs;   //Kilograms, Libras
     bool isActiveW;
 
     while(isActiveW)
     {
-        if(!(cin>>weC) || cin.get() != '\n')
-        {
-            cout << "Incorrect input!" << endl;
-            cin.clear();
-            cin.sync();
-        } else {
-
-            switch(weC)
-            {
+        while(!(cin >> weC))
+          {
+              cin.clear();
+              while (cin.get() != '\n');
+              cout << "WRONG" << endl;
+          };
+        switch(weC)
+          {
                 case 1:
                     cout << "Write mass in kilograms: ";
                     cin >> weKg;
@@ -124,7 +134,7 @@ void weight()
                     getch();
                     isActiveW = false;
                     break;
-
+                    
                 case 2:
                     cout << "Write mass in libras: ";
                     cin >> weLbs;
@@ -136,8 +146,7 @@ void weight()
                     break;
 
                 default: cout << "Try again, fool.";
-            };
-        };
+          };
     };
 };
 
@@ -146,21 +155,20 @@ void dist()
     cout << "\tDISTANCE" << endl;
     cout << "1. Kilometers -> Miles" << endl;
     cout << "2. Miles -> Kilometers" << endl;
-    int distC;
+    int distC;              // distance Coice
     double distK, distM;    //Km, Miles
     bool isActiveD;
 
     while(isActiveD)
     {
-        if(!(cin>>distC) || cin.get() != '\n')
-        {
-            cout << "Incorrect input!" << endl;
-            cin.clear();
-            cin.sync();
-        } else {
-
-            switch(distC)
-            {
+        while(!(cin >> distC))
+          {
+              cin.clear();
+              while (cin.get() != '\n');
+              cout << "WRONG" << endl;
+          };
+        switch(distC)
+          {
                 case 1:
                     cout << "Write distance in km: ";
                     cin >> distK;
@@ -180,9 +188,9 @@ void dist()
                     getch();
                     isActiveD = false;
                     break;
-
+                    
                 default: cout << "Try again, fool.";
-            };
-        };
+          };
     };
 };
+
